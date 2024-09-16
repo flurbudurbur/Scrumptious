@@ -2,3 +2,4 @@
 pyenv.cfg
 .python-version
 Lib/*
+Scripts/*
