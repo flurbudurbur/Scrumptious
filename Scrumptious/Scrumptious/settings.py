@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +25,10 @@ SECRET_KEY = 'django-insecure-ruj$7a-v=d!uecgx7uywhd#4u^ofcfzmke=z0g=-d!zaa^_z63
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'theme/static'),
+]
+
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'Scrumptious.urls'
@@ -121,3 +129,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# TailwindCSS
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
