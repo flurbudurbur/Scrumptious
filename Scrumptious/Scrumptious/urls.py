@@ -15,17 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.urls import path, include
 
-def home_view(request):
-    return HttpResponse("<h1>fuck you</h1>")
+from authorize.views import login_view, register_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Add the __reload__ URL pattern for browser reload
-    path('', home_view, name='home'),
-    path("__reload__/", include("django_browser_reload.urls")),
+    path('', login_view, name='home'),
+    path('accounts/', include('authorize.urls')),
+    path('__reload__/', include("django_browser_reload.urls")),
 ]
 

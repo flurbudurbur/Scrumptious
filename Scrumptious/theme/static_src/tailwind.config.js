@@ -42,7 +42,19 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                primary: '#FF6B35',
+                secondary: '#7C6F55',
+                highlight: '#FFC107',
+                neutral: '#F4E1D2',
+                text: '#333333',
+                accent: '#A3D9B1',
+            },
+            backgroundImage: {
+                accounts: 'url("/static/images/login.jpg")',
+            },
+        },
     },
     plugins: [
         /**

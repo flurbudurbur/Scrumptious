@@ -4,17 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd5779c-6bc7-43c3-b44d-33bf0d06ee4d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="fdd5779c-6bc7-43c3-b44d-33bf0d06ee4d" name="Changes" comment="TailwindCSS added">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/headerLinks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/nav.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Scrumptious.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrumptious.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrumptious/Scrumptious/Test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/Scrumptious/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/Scrumptious/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/theme/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/theme/static/css/dist/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/static/css/dist/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/theme/static_src/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/static_src/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/theme/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +35,14 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -33,8 +53,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;assignee&quot;: &quot;flurbudurbur&quot;
+    }
+  ],
   &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;flurbudurbur&quot;
   }
 }</component>
@@ -48,24 +72,43 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2mF6iUTqv2t8iNbCsF2qU525XmK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.Scrumptious.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "TailwindCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.Scrumptious.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;TailwindCSS&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
+    ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\PycharmProjects\Scrumptious\Scrumptious\authorize" />
+      <recent name="C:\Users\sebas\PycharmProjects\Scrumptious\Scrumptious\theme\static_src\src\images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Scrumptious" type="Python.DjangoServer" factoryName="Django server">
       <module name="Scrumptious" />
@@ -96,8 +139,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
-        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.22855.92" />
+        <option value="bundled-python-sdk-b068d85d1acf-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.22855.92" />
       </set>
     </attachedChunks>
   </component>
@@ -113,11 +156,37 @@
       <workItem from="1726746697923" duration="1136000" />
       <workItem from="1726815057654" duration="107000" />
       <workItem from="1726815423008" duration="749000" />
-      <workItem from="1726816841221" duration="6174000" />
+      <workItem from="1726816841221" duration="17907000" />
+      <workItem from="1727004707649" duration="2869000" />
+      <workItem from="1727007794788" duration="3284000" />
+      <workItem from="1727011111871" duration="12130000" />
+      <workItem from="1727032064847" duration="960000" />
     </task>
+    <task id="LOCAL-00001" summary="TailwindCSS committed">
+      <option name="closed" value="true" />
+      <created>1726823181763</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726823181763</updated>
+    </task>
+    <task id="LOCAL-00002" summary="TailwindCSS added">
+      <option name="closed" value="true" />
+      <created>1726823205956</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726823205956</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="TailwindCSS committed" />
+    <MESSAGE value="TailwindCSS added" />
+    <option name="LAST_COMMIT_MESSAGE" value="TailwindCSS added" />
   </component>
 </project>

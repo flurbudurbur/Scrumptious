@@ -1,22 +1,20 @@
 {% load static tailwind_tags %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <title>Django Tailwind</title>
+    <title>{% block title %}{% endblock %} - Scrumptious</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		{% tailwind_css %}
-        {% if debug %}
-            <script src="http://localhost:8000/__reload__/reload.js"></script>
-        {% endif %}
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	</head>
 
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-		<div class="container mx-auto">
-			<section class="flex items-center justify-center h-screen">
-				<h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-			</section>
-		</div>
+	<body class="bg-neutral">
+        {% include 'nav.html' %}
+        {% block content %}{% endblock %}
+        {% include 'footer.html' %}
 	</body>
 </html>
