@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdd5779c-6bc7-43c3-b44d-33bf0d06ee4d" name="Changes" comment="TailwindCSS added">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/authorize/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/headerLinks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Scrumptious.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrumptious.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrumptious/Scrumptious/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrumptious/Scrumptious/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrumptious/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrumptious/theme/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/theme/static/css/dist/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/static/css/dist/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrumptious/theme/static_src/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/static_src/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrumptious/theme/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +46,17 @@
     &quot;assignee&quot;: &quot;flurbudurbur&quot;
   }
 }</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOMxLvRc58S1P3&quot;,
+        &quot;number&quot;: 2
+      },
+      &quot;lastSeen&quot;: 1727251155701
+    }
+  ]
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/flurbudurbur/Scrumptious.git&quot;,
@@ -87,7 +82,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;TailwindCSS&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#2 on TailwindCSS&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -161,6 +156,10 @@
       <workItem from="1727007794788" duration="3284000" />
       <workItem from="1727011111871" duration="12130000" />
       <workItem from="1727032064847" duration="960000" />
+      <workItem from="1727070402599" duration="1858000" />
+      <workItem from="1727115810644" duration="755000" />
+      <workItem from="1727247387913" duration="3595000" />
+      <workItem from="1727263752093" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="TailwindCSS committed">
       <option name="closed" value="true" />
