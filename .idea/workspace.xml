@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd5779c-6bc7-43c3-b44d-33bf0d06ee4d" name="Changes" comment="TailwindCSS added">
+    <list default="true" id="fdd5779c-6bc7-43c3-b44d-33bf0d06ee4d" name="Changes" comment="TailwindCSS forms complete">
+      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/Scrumptious/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/Scrumptious/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/authorize/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/authorize/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrumptious/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrumptious/theme/static/css/dist/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Scrumptious/theme/static/css/dist/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +164,7 @@
       <workItem from="1727070402599" duration="1858000" />
       <workItem from="1727115810644" duration="755000" />
       <workItem from="1727247387913" duration="3595000" />
-      <workItem from="1727263752093" duration="268000" />
+      <workItem from="1727263752093" duration="4133000" />
     </task>
     <task id="LOCAL-00001" summary="TailwindCSS committed">
       <option name="closed" value="true" />
@@ -177,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726823205956</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="TailwindCSS forms complete">
+      <option name="closed" value="true" />
+      <created>1727264522796</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727264522796</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +199,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="TailwindCSS committed" />
     <MESSAGE value="TailwindCSS added" />
-    <option name="LAST_COMMIT_MESSAGE" value="TailwindCSS added" />
+    <MESSAGE value="TailwindCSS forms complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="TailwindCSS forms complete" />
   </component>
 </project>

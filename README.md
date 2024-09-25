@@ -1,9 +1,9 @@
 # Scrumptious
 
 ## Tailwind installation
-1. Packages needed for TailwindCSS to work.
+1. Packages needed for the project to work:
 ```python
-python -m pip install django-tailwind django-tailwind[reload] pillow
+python -m pip install django-tailwind django-tailwind[reload] pillow django[argon2]
 ```
 
 3. Initialize TailwindCSS.

@@ -75,8 +75,8 @@ class UserRegistrationForm(forms.ModelForm):
         required=True,
     )
 
-    def __init__(self):
-        super(UserRegistrationForm, self).__init__()
+    def __init__(self, *args, **kwargs):
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
         self.fields['Confirm Password'] = forms.CharField(widget=forms.PasswordInput(
             attrs={
                 'placeholder': 'Confirm your password',

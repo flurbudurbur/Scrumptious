@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password
 from django.shortcuts import render
 from authorize.forms import UserLoginForm, UserRegistrationForm
 
@@ -13,6 +14,7 @@ def login_view(request):
     context['form'] = form
     return render(request, 'login.html', context)
 
+
 def register_view(request):
     context = {}
     form = UserRegistrationForm()
@@ -20,10 +22,11 @@ def register_view(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             password = form.cleaned_data['password']
-            confirm_password = request.POST.get('confirm_password')
+            confirm_password = request.POST.get('Confirm Password')
             if password == confirm_password:
+                hashed_password = make_password(password)
+                form.instance.password = hashed_password
                 form.save()
-        else:
-            context['error'] = 'Passwords do not match.'
+                return render(request, 'home.html', context)
     context['form'] = form
     return render(request, 'register.html', context)
