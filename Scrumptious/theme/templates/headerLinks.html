@@ -14,7 +14,7 @@
     <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Home </a>
 </li>
 
-{% if user.is_authenticated %}
+{% if not user.is_authenticated %}
 
     <li>
         <a class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2"
@@ -29,8 +29,10 @@
 {% else %}
 
     <li>
-        <a class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2"
-           href="{% url 'logout' %}"> Log Out </a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
     </li>
 
 {% endif %}

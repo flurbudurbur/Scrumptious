@@ -13,7 +13,7 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('/')
         else:
             messages.success(request, "Error :(")
             return redirect('login')
@@ -22,26 +22,6 @@ def user_login(request):
         form = UserLoginForm()
         v_context['form'] = form
         return render(request, 'login.html', v_context)
-# Create your views here.
-# def login_view(request):
-#     view_context = {}
-#     form = UserLoginForm()
-#     if request.method == 'POST':
-#         form = UserLoginForm(request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data['username']
-#             password = form.cleaned_data['password']
-#             try:
-#                 user = Users.objects.get(username=username)
-#                 if check_password(password, user.password):
-#                     login(request, user)
-#                     return render(request, 'home.html', view_context)
-#                 else:
-#                     view_context['error'] = 'Invalid password.'
-#             except Users.DoesNotExist:
-#                 view_context['error'] = 'User does not exist.'
-#     view_context['form'] = form
-#     return render(request, 'login.html', view_context)
 
 
 def register_view(request):
@@ -61,8 +41,7 @@ def register_view(request):
                 return render(request, 'home.html', view_context)
     view_context['form'] = form
     return render(request, 'register.html', view_context)
-#
-# def logout_view(request):
-#     logout(request)
-#
-#     return redirect('home')
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
