@@ -11,13 +11,13 @@
             </div>
         {% endif %}
         <div class="mx-auto flex items-center w-full justify-center min-h-[70vh] bg-accounts bg-cover bg-center p-10">
-            <form method="post" action="">
+            <form method="post">
                 {% csrf_token %}
                 <div class="flex flex-col gap-2">
                     <h1 class="text-4xl font-bold">Register</h1>
                     {% for field in form %}
                         <div class="flex flex-col gap-2">
-                            <label for="{{ field.name }}" class="capitalize">{{ field.name }} <span
+                            <label for="{{ field.name }}" class="capitalize">{{ field.label }} <span
                                     class="text-small text-red-400">*</span></label>
                             {{ field }}
                         </div>

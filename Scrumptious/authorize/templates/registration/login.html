@@ -6,7 +6,7 @@
 {% block content %}
     <section class="relative min-h-[70vh]">
         <div class="mx-auto z-10 flex items-center w-full justify-center min-h-[70vh] bg-accounts bg-cover bg-center p-10">
-            <form method="post" action="">
+            <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="flex flex-col gap-2">
                     <h1 class="text-4xl font-bold">Log in</h1>

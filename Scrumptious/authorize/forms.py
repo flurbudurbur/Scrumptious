@@ -1,85 +1,38 @@
 from django import forms
-from authorize.models import Users
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 
 
-class UserLoginForm(forms.ModelForm):
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
     class Meta:
-        model = Users
-        fields = ['username', 'password']
-
-    username = forms.CharField(max_length=16,
-                               widget=forms.TextInput(
-                                   attrs={
-                                       'placeholder': 'Enter your username',
-                                       'class': 'p-2 border border-gray-300 rounded',
-                                   }
-                               ),
-                               label='Username',
-                               required=True,
-                               )
-    password = forms.CharField(widget=forms.PasswordInput(
-        attrs={
-            'placeholder': 'Enter your password',
-            'class': 'p-2 border border-gray-300 rounded',
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+        labels = {
+            'username': 'Username',
+            'email': 'Email',
+            'password1': 'Password',
+            'password2': 'Confirm Password',
         }
-    ),
-        label='Password',
-        required=True,
-    )
-
-
-class UserRegistrationForm(forms.ModelForm):
-    class Meta:
-        model = Users
-        fields = ['name', 'username', 'email', 'password']
-
-    name = forms.CharField(max_length=100,
-                           widget=forms.TextInput(
-                               attrs={
-                                   'placeholder': 'Enter your full name',
-                                   'class': 'p-2 border border-gray-300 rounded',
-                               }
-                           ),
-                           label='Full Name',
-                           required=True,
-                           )
-    username = forms.CharField(max_length=16,
-                               widget=forms.TextInput(
-                                   attrs={
-                                       'placeholder': 'Enter a username',
-                                       'class': 'p-2 border border-gray-300 rounded',
-                                   }
-                               ),
-                               label='Username',
-                               required=True,
-                               )
-    email = forms.EmailField(widget=forms.EmailInput(
-        attrs={
-            'placeholder': 'Enter your email address',
-            'class': 'p-2 border border-gray-300 rounded',
-        }
-    ),
-        label='Email',
-        required=True,
-    )
-    password = forms.CharField(widget=forms.PasswordInput(
-        attrs={
-            'placeholder': 'Enter a password',
-            'class': 'p-2 border border-gray-300 rounded',
-        }
-    ),
-        label='Password',
-        required=True,
-    )
 
     def __init__(self, *args, **kwargs):
-        super(UserRegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['Confirm Password'] = forms.CharField(widget=forms.PasswordInput(
-            attrs={
-                'placeholder': 'Confirm your password',
-                'class': 'p-2 border border-gray-300 rounded',
-            }
-        ),
-            label='Confirm Password',
-            required=True,
-        )
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'p-2 border border-gray-300 rounded'
+
+        self.fields['username'].widget.attrs['placeholder'] = 'Username'
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['password1'].widget.attrs['placeholder'] = 'Password'
+        self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
+
+
+class LoginForm(AuthenticationForm):
+    class Meta:
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'class': 'p-2 border border-gray-300 rounded', 'placeholder': 'Username'}),
+            'password': forms.PasswordInput(
+                attrs={'class': 'p-2 border border-gray-300 rounded', 'placeholder': 'Password'}),
+        }
+        fields = ['username', 'password']
