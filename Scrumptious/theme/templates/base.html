@@ -14,6 +14,11 @@
 
 	<body class="">
         {% include 'nav.html' %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
         {% block content %}{% endblock %}
         {% include 'footer.html' %}
 	</body>

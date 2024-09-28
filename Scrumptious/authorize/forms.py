@@ -27,9 +27,6 @@ class UserLoginForm(forms.ModelForm):
         required=True,
     )
 
-    # def __init__(self):
-    #     super(UserLoginForm, self).__init__()
-
 
 class UserRegistrationForm(forms.ModelForm):
     class Meta:

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <section class="relative min-h-[70vh]">
+        <div class="mx-auto z-10 flex items-center w-full justify-center min-h-[70vh] bg-accounts bg-cover bg-center p-10">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="flex flex-col gap-2">
+                    <h1 class="text-4xl font-bold">Log in</h1>
+                    {% for field in form %}
+                        <div class="flex flex-col gap-2">
+                            <label for="{{ field.name }}" class="capitalize">{{ field.name }} <span class="text-small text-red-400">*</span></label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                    <div class="flex justify-between items-center">
+                        <button type="submit" class="bg-primary text-white p-2 rounded">Log in</button>
+                        <a href="{% url 'register' %}" class="text-primary">Register</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
