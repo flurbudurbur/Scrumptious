@@ -21,7 +21,7 @@ from authorize.views import login_view, register_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', login_view, name='home'),
+    path('', include('posts.urls')),
     path('accounts/', include('authorize.urls')),
     path('__reload__/', include("django_browser_reload.urls")),
 ]
