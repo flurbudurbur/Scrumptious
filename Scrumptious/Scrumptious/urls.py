@@ -17,7 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from Scrumptious.views import home_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('authorize/', include('authorize.urls')),
+    path('', home_view, name='home'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('authorize.urls')),
+    path('__reload__/', include("django_browser_reload.urls")),
 ]
+

@@ -1,0 +1,48 @@
+<header class="bg-white">
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-24 justify-between">
+            <div class="flex-1 flex items-center md:gap-12">
+                <a class="block font-mono text-2xl uppercase text-text text-center font-bold" href="#">
+                    <span class="sr-only">Home</span>
+                    <h1>scrumptious🍲Recipes</h1>
+                </a>
+            </div>
+
+            <div class="flex items-center md:gap-12">
+                <nav aria-label="Global" class="hidden md:block">
+                    <ul class="flex items-center gap-6 text-sm">
+                        {% include 'headerLinks.html' %}
+                    </ul>
+                </nav>
+                {# mobile #}
+                <nav class="md:hidden flex relative flex-col items-center">
+                    <div class="w-20 h-20" id="nav-mobile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
+                             fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 8.25H4.5V6.75H19.5V8.25Z"
+                                  fill="#080341"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 12.75H4.5V11.25H19.5V12.75Z"
+                                  fill="#080341"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 17.25H4.5V15.75H19.5V17.25Z"
+                                  fill="#080341"></path>
+                        </svg>
+                    </div>
+                    <ul class="flex-col-reverse gap-6 text-sm flex-wrap top-[5.5rem] transition-all absolute bg-white py-4 px-6 rounded-b-lg" style="display: none;" id="nav-mobile-toggle">
+                        {% include 'headerLinks.html' %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#nav-mobile').click(function () {
+                if ($('#nav-mobile-toggle').css('display') === 'flex') {
+                    $('#nav-mobile-toggle').css('display', 'none');
+                } else {
+                    $('#nav-mobile-toggle').css('display', 'flex');
+                }
+            });
+        });
+    </script>
+</header>
