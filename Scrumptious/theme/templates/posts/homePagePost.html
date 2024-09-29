@@ -1,0 +1,43 @@
+{% load static %}
+<a href="#">
+    <article class="border-2 border-secondary rounded p-2 max-h-80">
+        <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+            <div class="flex  flex-col md:col-start-1 md:justify-between">
+                <div>
+                    <h1 class="text-xl font-bold font-mono">Appeltaaaart</h1>
+                    <div class="flex items-center justify-start">
+                        <img src="{% static 'images/profile.svg' %}" alt="" class="w-6 h-6">
+                        <h3 class="text-l italic m-1">Michael Vlierebaart</h3>
+                    </div>
+                    <div class="h-full">
+                        <p class="whitespace-normal line-clamp-3">
+                            roomDescrip roomDescrip roomDescrip roomDescrip roomDescrip roomDescrip roomDescrip
+                            tionroomDescr iptionrootionroom Descriptionroo mDescriptionroomDescription roomDescription
+                            room
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-row justify-between mx-10 text-right">
+                    <div class="grid grid-cols-2 gap-1 items-center">
+                        <p>3</p>
+                        <img src="{% static 'images/heart.svg' %}" alt="like"
+                             class="w-4 h-4"></div>
+                    <div class="grid grid-cols-2 gap-1 items-center">
+                        <p>17</p>
+                        <img src="{% static 'images/bookmark.svg' %}" alt="bookmark"
+                             class="h-4 w-4">
+                    </div>
+                    <div class="grid grid-cols-2 gap-1 items-center">
+                        <p>5</p>
+                        <img src="{% static 'images/comment.svg' %}" alt="comments"
+                             class="h-4 w-4">
+                    </div>
+                </div>
+            </div>
+            <figure class="md:col-start-2 row-start-1">
+                <img src="{% static 'images/login.jpg' %}" alt="food image"
+                     class="object-cover border-2 border-black rounded max-h-40 w-full">
+            </figure>
+        </div>
+    </article>
+</a>
