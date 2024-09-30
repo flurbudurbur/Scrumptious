@@ -7,17 +7,38 @@
 </li>
 
 <li>
-    <a class="text-text transition hover:text-text/75" href="#"> History </a>
+    <a class="text-text transition hover:text-text/75" href="#"> Post it </a>
 </li>
 
 <li>
-    <a class="text-text transition hover:text-text/75" href="#"> Services </a>
+    <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Home </a>
 </li>
 
-<li>
-    <a class="text-text transition hover:text-text/75" href="#"> Projects </a>
-</li>
+{% if user.is_authenticated %}
 
-<li>
-    <a class="text-text transition hover:text-text/75" href="#"> Blog </a>
-</li>
+    <li>
+        <a class="text-text transition hover:text-text/75" href="#"> {{ user.username }} </a>
+    </li>
+
+    <li>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2" type="submit">
+            Log Out
+        </button>
+    </form>
+    </li>
+
+{% else %}
+
+    <li>
+        <a class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2"
+           href="{% url 'register' %}"> Create Account </a>
+    </li>
+
+    <li>
+        <a class="transition hover:text-text/75 rounded border-2 border-primary bg-primary p-2 text-white"
+           href="{% url 'login' %}"> Log In </a>
+    </li>
+
+{% endif %}
