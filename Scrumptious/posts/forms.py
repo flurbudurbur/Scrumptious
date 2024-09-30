@@ -1,15 +1,19 @@
 from django import forms
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
+from .models import Post
 
-@login_required
+#login_required
 class MakePost(forms.Form):
-    title = forms.CharField(max_length=100)
-    ingredient = forms.CharField(widget=forms.Textarea)
-    preparation = forms.CharField(widget=forms.Textarea)
-    description = forms.CharField(widget=forms.Textarea)
-    image = forms.ImageField(required=False)
+    class Meta():
+        model = Post
+        fields = ['title', 'ingredient', 'preparation', 'description', 'image']
+        labels = {
+            'title': 'Title',
+            'ingredient': 'Ingredients',
+            'preparation': 'Preparation',
+            'description': 'Description',
+            'image': 'Image',
+        }
 
     def __init__(self, *args, **kwargs):
         super(MakePost, self).__init__(*args, **kwargs)
