@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'authorize',
+    'posts',
     'Scrumptious',
     'django_browser_reload',
 ]

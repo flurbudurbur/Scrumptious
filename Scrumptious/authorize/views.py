@@ -1,9 +1,9 @@
 from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.decorators import login_not_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from authorize.forms import RegistrationForm
-
 
 def register_view(request):
     if request.method == 'POST':

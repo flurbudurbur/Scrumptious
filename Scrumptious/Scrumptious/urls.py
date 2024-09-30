@@ -25,5 +25,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('authorize.urls')),
     path('__reload__/', include("django_browser_reload.urls")),
+    path('posts/', include('posts.urls')),
+
 ]
 
