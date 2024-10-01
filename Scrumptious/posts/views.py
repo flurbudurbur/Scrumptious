@@ -14,13 +14,11 @@ def home(request):
 def makepost(request):
     if request.method == 'POST':
         form = MakePost(request.POST, request.FILES)
-        print(form.errors)
         if form.is_valid():
             post = form.save(commit=True)
             post.author = "test"
             post.save()
-            print("test")
-            return redirect('home')
+            return redirect('/posts/')
     return render(request, 'makepost.html', context={'form': MakePost()})
 
 
