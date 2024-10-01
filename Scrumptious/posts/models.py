@@ -1,5 +1,5 @@
 from django.db import models
-from authorize.models import User
+from django.contrib.auth.models import User
 
 
 class Post(models.Model):
