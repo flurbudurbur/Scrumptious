@@ -6,12 +6,14 @@
     <a class="text-text transition hover:text-text/75" href="#"> Careers </a>
 </li>
 
+
+
+{% if user.is_authenticated %}
+
 <li>
     <a class="text-text transition hover:text-text/75"
        href="{% url 'makepost' %}"> Create Post </a>
 </li>
-
-{% if user.is_authenticated %}
 
 <li>
     <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Home </a>
