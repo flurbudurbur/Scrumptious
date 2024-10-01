@@ -3,13 +3,13 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 
 #login_required
-class MakePost(forms.Form):
+class MakePost(forms.ModelForm):
     class Meta():
         model = Post
-        fields = ['title', 'ingredient', 'preparation', 'description', 'image']
+        fields = ['title', 'ingredients', 'preparation', 'description', 'image']
         labels = {
             'title': 'Title',
-            'ingredient': 'Ingredients',
+            'ingredients': 'Ingredients',
             'preparation': 'Preparation',
             'description': 'Description',
             'image': 'Image',
@@ -20,7 +20,7 @@ class MakePost(forms.Form):
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'p-2 border border-gray-300 rounded'
         self.fields['title'].widget.attrs['placeholder'] = 'Title'
-        self.fields['ingredient'].widget.attrs['placeholder'] = 'Ingredients go here..'
+        self.fields['ingredients'].widget.attrs['placeholder'] = 'Ingredients go here..'
         self.fields['preparation'].widget.attrs['placeholder'] = 'Preparation goes here..'
         self.fields['description'].widget.attrs['placeholder'] = 'Description goes here...'
         self.fields['image'].widget.attrs['placeholder'] = 'Image'
