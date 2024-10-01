@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Post
 from .forms import MakePost
+from django.contrib import messages
 
 # Create your views here.
 
@@ -18,6 +19,7 @@ def makepost(request):
             post = form.save(commit=True)
             post.author = "test"
             post.save()
+            print("test")
             return redirect('home')
     return render(request, 'makepost.html', context={'form': MakePost()})
 
