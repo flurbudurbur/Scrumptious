@@ -8,7 +8,7 @@
     <div class="mx-auto flex items-center w-full justify-center min-h-[70vh] bg-accounts bg-cover bg-center p-10">
         <div class="flex flex-col gap-2">
             <div class="flex flex-col gap-2">
-                <form method="POST" action="{% url 'makepost' %}" enctype= multipart/form-data>
+                <form method="POST" enctype= multipart/form-data>
                     {% csrf_token %}
                     <div class="flex-col ">
                         {% for field in form %}
@@ -25,6 +25,6 @@
             </div>
         </div>
     </div>
-    <div class="h-12"></div>
+
 
 {% endblock %}

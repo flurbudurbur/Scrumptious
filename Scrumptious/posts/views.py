@@ -15,10 +15,12 @@ def makepost(request):
     if request.method == 'POST':
         form = MakePost(request.POST, request.FILES)
         if form.is_valid():
-            post = form.save(commit=True)
+            post = form.save()
             post.author = "test"
             post.save()
             return redirect('/posts/')
+    else:
+        form = MakePost()
     return render(request, 'makepost.html', context={'form': MakePost()})
 
 
