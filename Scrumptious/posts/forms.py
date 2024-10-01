@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.decorators import login_required
 from .models import Post
 
-#login_required
+@login_required
 class MakePost(forms.ModelForm):
     class Meta():
         model = Post

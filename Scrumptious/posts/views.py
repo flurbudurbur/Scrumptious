@@ -16,7 +16,7 @@ def makepost(request):
         form = MakePost(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
-            post.author = "test"
+            post.author = request.user
             post.save()
             return redirect('/posts/')
     else:
