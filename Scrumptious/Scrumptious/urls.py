@@ -21,6 +21,7 @@ from Scrumptious.views import home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('posts.urls')),
     path('', home_view, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('authorize.urls')),
