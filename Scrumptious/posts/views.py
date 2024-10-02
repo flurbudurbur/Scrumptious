@@ -13,7 +13,7 @@ def makepost(request):
         form = MakePost(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.user = request.user  # Correctly assign the user
+            post.user = request.user
             post.save()
             return redirect('home')
     else:
