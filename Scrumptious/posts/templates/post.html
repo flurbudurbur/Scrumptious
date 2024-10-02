@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Post{% endblock %}
+{% block content %}
+    <article class="mx-3 md:max-w-[64rem] md:mx-auto grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
+        <div>
+            <div class="flex md:flex-row flex-col justify-between">
+                <div>
+                    <h1 class="font-mono font-bold text-2xl">{{ post.title }}</h1>
+                    <h2 class="italic text-lg">By {{ post.user }}</h2>
+                </div>
+                <div class="content-center">
+                    <div class="grid grid-cols-3 gap-2 items-center justify-end w-fit my-2 md:my-0 mx-auto md:mx-0">
+                        <div class="grid grid-cols-2 gap-1 items-center">
+                            <p>1337</p>
+                            <img src="{% static 'images/heart.svg' %}" alt="like" class="w-4 h-4">
+                        </div>
+                        <div class="grid grid-cols-2 gap-1 items-center">
+                            <p>420</p>
+                            <img src="{% static 'images/bookmark.svg' %}" alt="bookmark" class="h-4 w-4">
+                        </div>
+                        <div class="grid grid-cols-2 gap-1 items-center">
+                            <p>69</p>
+                            <img src="{% static 'images/comment.svg' %}" alt="comments" class="h-4 w-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if post.image %}
+                <figure>
+                    <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="rounded">
+                </figure>
+            {% endif %}
+
+            {% if post.ingredients %}
+                <div>
+                    <h3 class="italic font-mono text-lg capitalize">Ingredients</h3>
+                    <ol>
+                        <li>{{ post.ingredients }}</li>
+                    </ol>
+                </div>
+            {% endif %}
+
+            {% if post.preparation %}
+                <div>
+                    <h3 class="italic font-mono text-lg capitalize">preparation</h3>
+                    <ol>
+                        <li>{{ post.preparation }}</li>
+                    </ol>
+                </div>
+            {% endif %}
+            <div>
+                <h3 class="italic font-mono text-lg capitalize">Description</h3>
+                <ol>
+                    <li>{{ post.description }}</li>
+                </ol>
+            </div>
+        </div>
+        <div class="flex gap-2 flex-col">
+            <div class="w-full h-96 overflow-y-scroll grid grid-cols-1 gap-2">
+                {% for comment in comments %}
+                    <div class="flex gap-2 rounded border-2 border-secondary">
+                        <div class="col-span-2 flex flex-row gap-1 border-r-black border-r-2 py-1 pl-1 pr-2 m-1 min-w-fit">
+                            <img src="{% static 'images/profile.svg' %}" alt="Profile Picture"
+                                 class="rounded-full w-6 h-6">
+                            <p>{{ comment.user }}</p>
+                        </div>
+                        <p class="col-span-3 content-center">{{ comment.comment }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="flex flex-col gap-2">
+                    <label for="comment" class="hidden">Comment:</label>
+                    <textarea type="text" placeholder="Comment..." id="comment" name="comment"
+                              class="rounded" rows="3"></textarea>
+                    <button type="submit" class="border-2 rounded border-primary p-2 text-text">Comment</button>
+                </div>
+            </form>
+        </div>
+    </article>
+{% endblock %}

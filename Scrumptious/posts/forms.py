@@ -1,6 +1,5 @@
 from django import forms
-from django.contrib.auth.decorators import login_required
-from .models import Post
+from .models import Post, Comments
 
 
 class MakePost(forms.ModelForm):
@@ -29,3 +28,19 @@ class MakePost(forms.ModelForm):
         self.fields['image'].widget.attrs['placeholder'] = 'Image'
         self.fields['image'].widget.attrs['class'] = 'p-2 border border-gray-300 rounded'
         self.fields['image'].widget.attrs['accept'] = 'image/*'
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ['comment']
+        labels = {
+            'comment': 'Comment',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(CommentForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'p-2 border border-gray-300 rounded'
+        self.fields['comment'].widget.attrs['placeholder'] = 'Comment'
+        self.fields['comment'].widget.attrs['rows'] = 3

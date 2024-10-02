@@ -1,5 +1,5 @@
 {% load static %}
-<a href="#">
+<a href="{% url 'post' post.id %}">
     <article class="border-2 border-secondary rounded p-2 ">
         <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
             <div class="flex  flex-col md:col-start-1 md:justify-between">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <figure class="md:col-start-2 row-start-1">
-                <img src="{{ post.image }}" alt="image for  {{ post.title }}"
+                <img src="{{ post.image }}" alt="image for {{ post.title }}"
                      class="object-cover border-2 border-black rounded max-h-40 w-full">
             </figure>
         </div>
