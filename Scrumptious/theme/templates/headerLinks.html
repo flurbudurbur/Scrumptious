@@ -1,35 +1,35 @@
 <li>
-    <a class="text-text transition hover:text-text/75" href="#"> About </a>
+    <a class="text-text transition hover:text-text/75" href="{% url 'about' %}"> About </a>
 </li>
 
 <li>
-    <a class="text-text transition hover:text-text/75" href="#"> Careers </a>
+    <a class="text-text transition hover:text-text/75" href="{% url 'careers' %}"> Careers </a>
+</li>
+
+<li>
+    <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Recipes </a>
 </li>
 
 
 
 {% if user.is_authenticated %}
 
-<li>
-    <a class="text-text transition hover:text-text/75"
-       href="{% url 'makepost' %}"> Create Post </a>
-</li>
-
-<li>
-    <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Home </a>
-</li>
+    <li>
+        <a class="text-text transition hover:text-text/75"
+           href="{% url 'create' %}"> Create Post </a>
+    </li>
 
     <li>
         <a class="text-text transition hover:text-text/75" href="#"> {{ user.username }} </a>
     </li>
 
     <li>
-    <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <button class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2" type="submit">
-            Log Out
-        </button>
-    </form>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2" type="submit">
+                Log Out
+            </button>
+        </form>
     </li>
 
 {% else %}

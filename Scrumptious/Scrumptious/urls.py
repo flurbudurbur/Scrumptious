@@ -14,19 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from Scrumptious.views import home_view
+from .views import home_view, about_view, career_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('posts.urls')),
     path('', home_view, name='home'),
+    path('about/', about_view, name='about'),
+    path('careers/', career_view, name='careers'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('authorize.urls')),
     path('__reload__/', include("django_browser_reload.urls")),
-    path('posts/', include('posts.urls')),
-
+    path('posts/', include('posts.urls'), name='posts'),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
