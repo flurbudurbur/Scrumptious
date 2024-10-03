@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 from .forms import MakePost
-from django.contrib.auth.models import User
-
 
 def home_view(request):
     context = {}
