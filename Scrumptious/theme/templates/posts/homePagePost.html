@@ -2,7 +2,7 @@
 <a href="{% url 'post' post.id %}">
     <article class="border-2 border-secondary rounded p-2 ">
         <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
-            <div class="flex  flex-col md:col-start-1 md:justify-between">
+            <div class="flex flex-col md:col-start-1 md:justify-between">
                 <div>
                     <h1 class="text-xl font-bold font-mono">{{ post.title }}</h1>
                     <div class="flex items-center justify-start">
@@ -32,10 +32,16 @@
                     </div>
                 </div>
             </div>
-            <figure class="md:col-start-2 row-start-1">
-                <img src="{{ post.image }}" alt="image for {{ post.title }}"
-                     class="object-cover border-2 border-black rounded max-h-40 w-full">
-            </figure>
+            {% if post.image.url != null %}
+                <figure class="md:col-start-2 row-start-1">
+                    <img src="{{ post.image.url }}" alt="image for {{ post.title }}"
+                         class="object-cover border-2 border-black rounded max-h-40 w-full">
+                </figure>
+            {% else %}
+                <div>
+                    <p>{{ post.description }}</p>
+                </div>
+            {% endif %}
         </div>
     </article>
 </a>
