@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd5779c-6bc7-43c3-b44d-33bf0d06ee4d" name="Changes" comment="Process of improving User sign in">
-      <change beforePath="$PROJECT_DIR$/.idea/Scrumptious.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrumptious.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="fdd5779c-6bc7-43c3-b44d-33bf0d06ee4d" name="Changes" comment="Process of improving User sign in" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +162,7 @@
       <workItem from="1727284641950" duration="3073000" />
       <workItem from="1727546696444" duration="10038000" />
       <workItem from="1728027019890" duration="568000" />
-      <workItem from="1728027636848" duration="343000" />
+      <workItem from="1728027636848" duration="671000" />
     </task>
     <task id="LOCAL-00001" summary="TailwindCSS committed">
       <option name="closed" value="true" />
@@ -210,7 +204,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727547438685</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Process of improving User sign in">
+      <option name="closed" value="true" />
+      <created>1728028261544</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728028261544</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Process of improving User sign in">
+      <option name="closed" value="true" />
+      <created>1728028291601</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728028291601</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
