@@ -8,9 +8,23 @@
         <h1 class="text-2xl font-mono font-bold capitalize w-full py-1 px-2 my-3 border-b-2 border-primary">Our
             community's taste</h1>
         <section class="flex flex-col gap-2">
-            {% for post in posts %}
+            {% for post in page_obj %}
                 {% include 'posts/homePagePost.html' with post=post %}
             {% endfor %}
         </section>
+        <div class="mx-3 md:max-w-[900px] md:mx-auto md:px-3">
+            <div class="flex gap-2">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" class="bg-primary text-white p-2 rounded">First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="bg-primary text-white p-2 rounded">Previous</a>
+                {% endif %}
+
+                <span class="text-primary">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="bg-primary text-white p-2 rounded">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" class="bg-primary text-white p-2 rounded">Last</a>
+                {% endif %}
+            </div>
+        </div>
     </section>
 {% endblock %}
