@@ -10,8 +10,8 @@ urlpatterns = [
     ), name='login'),
     path('register/', views.register_view, name='register'),
     path('logout/', views.logout, name='logout'),
-    path('admin', views.admin_page, name='admin'),  # Admin user list page
-    path('admin/edituser/<int:user_id>/', views.edit_user, name='edit_user'),  # Edit user page
+    path('admin', views.admin_page, name='admin'),
+    path('admin/edituser/<int:user_id>/', views.edit_user, name='edit_user'),
 ]
 
 

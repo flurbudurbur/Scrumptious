@@ -23,6 +23,12 @@
         <a class="text-text transition hover:text-text/75" href="#"> {{ user.username }} </a>
     </li>
 
+    {% if user.is_staff %}
+        <li>
+            <a class="transition hover:text-text/75 rounded border-2 border-primary bg-primary p-2 text-white" href="{% url 'admin' %}"> Admin </a>
+        </li>
+    {% endif %}
+
     <li>
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
