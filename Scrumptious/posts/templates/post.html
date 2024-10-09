@@ -12,15 +12,15 @@
                 <div class="content-center">
                     <div class="grid grid-cols-3 gap-2 items-center justify-end w-fit my-2 md:my-0 mx-auto md:mx-0">
                         <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>1337</p>
+                            <p>{{ likes }}</p>
                             <img src="{% static 'images/heart.svg' %}" alt="like" class="w-4 h-4">
                         </div>
                         <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>420</p>
+                            <p>{{ bookmarks }}</p>
                             <img src="{% static 'images/bookmark.svg' %}" alt="bookmark" class="h-4 w-4">
                         </div>
                         <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>69</p>
+                            <p>{{ comments.count }}</p>
                             <img src="{% static 'images/comment.svg' %}" alt="comments" class="h-4 w-4">
                         </div>
                     </div>

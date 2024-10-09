@@ -44,3 +44,8 @@ class CommentForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'p-2 border border-gray-300 rounded'
         self.fields['comment'].widget.attrs['placeholder'] = 'Comment'
         self.fields['comment'].widget.attrs['rows'] = 3
+
+class LikeForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['likes']

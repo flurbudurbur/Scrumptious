@@ -1,12 +1,12 @@
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
 
 from Scrumptious.forms import AddIngredient
 from Scrumptious.models import Ingredients
 from .forms import MakePost, CommentForm
 
-from .models import Post, Comments
+from .models import Post, Comments, Bookmarks, Likes
 
 
 def home_view(request):
@@ -38,8 +38,10 @@ def create_post_view(request):
 def post_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = Comments.objects.filter(post_id=post)
+    likes = Likes.objects.filter(post_id=post).count()
+    bookmarks = Bookmarks.objects.filter(post_id=post).count()
     form = CommentForm()
-    context = {'post': post, 'comments': comments, 'form': form}
+    context = {'post': post, 'comments': comments, 'form': form, 'likes': likes, 'bookmarks': bookmarks}
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():

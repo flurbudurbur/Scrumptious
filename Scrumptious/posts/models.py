@@ -8,6 +8,8 @@ class Post(models.Model):
     ingredients = models.CharField(validators=[validate_comma_separated_integer_list], max_length=100)
     preparation = models.TextField(null=True, blank=True)
     description = models.TextField()
+    likes = models.IntegerField(default=0)
+    bookmarks = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
