@@ -20,6 +20,11 @@
                         <button type="submit" class="bg-primary text-white p-2 rounded">Log in</button>
                         <a href="{% url 'register' %}" class="text-primary">Register</a>
                     </div>
+                    <div class="flex justify-between items-center">
+                        {% if form.errors %}
+                            <p>Username or Password is incorrect. Please try again.</p>
+                        {% endif %}
+                    </div>
                 </div>
             </form>
         </div>
