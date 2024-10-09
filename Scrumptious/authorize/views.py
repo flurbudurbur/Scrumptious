@@ -34,6 +34,7 @@ def edit_user(request, user_id):
         user.username = request.POST.get('username')
         user.email = request.POST.get('email')
         user.is_active = 'is_active' in request.POST  # Activate/deactivate user
+        user.is_staff = 'is_staff' in request.POST  # Activate/deactivate staff
         user.save()
         return redirect('admin_user_list')  # Redirect to the user list after saving changes
     return render(request, 'edit_user.html', {'user': user})

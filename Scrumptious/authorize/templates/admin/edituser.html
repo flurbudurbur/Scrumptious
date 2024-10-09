@@ -20,6 +20,11 @@
                     <input type="checkbox" name="is_active" {% if user.is_active %}checked{% endif %} class="mr-2">
                     Active
                 </label>
+
+                <label class="flex items-center">
+                    <input type="checkbox" name="is_staff" {% if user.is_staff %}checked{% endif %} class="mr-2">
+                    Active
+                </label>
                 
                 <button type="submit" class="bg-primary text-white p-2 rounded">Save Changes</button>
             </div>
