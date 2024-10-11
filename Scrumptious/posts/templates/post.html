@@ -11,12 +11,16 @@
                 </div>
                 <div class="content-center">
                     <div class="grid grid-cols-3 gap-2 items-center justify-end w-fit my-2 md:my-0 mx-auto md:mx-0">
+                        <form method="post" action="{% url 'post' post.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="like">
+                            <button type="submit" class="grid grid-cols-2 gap-1 items-center">
+                                <p>{{ like_count }}</p>
+                                <img src="{% static 'images/heart.svg' %}" alt="like" class="w-4 h-4">
+                            </button>
+                        </form>
                         <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>{{ likes }}</p>
-                            <img src="{% static 'images/heart.svg' %}" alt="like" class="w-4 h-4">
-                        </div>
-                        <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>{{ bookmarks }}</p>
+                            <p>{{ bookmark_count }}</p>
                             <img src="{% static 'images/bookmark.svg' %}" alt="bookmark" class="h-4 w-4">
                         </div>
                         <div class="grid grid-cols-2 gap-1 items-center">

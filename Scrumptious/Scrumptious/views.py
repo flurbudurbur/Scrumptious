@@ -7,9 +7,10 @@ from posts.models import Post, Likes, Bookmarks
 # @login_required
 def home_view(request):
     posts = Post.objects.annotate(
-        comment_count=Count('comments'),
-        like_count=Count('likes'),
-        bookmark_count=Count('bookmarks'))
+        comment_count=Count('comments'))
+    for post in posts:
+        post.like_count = Likes.objects.filter(post_id=post.id).count()
+        post.bookmark_count = Bookmarks.objects.filter(post_id=post.id).count()
     context = {'posts': posts}
     return render(request, 'home.html', context)
 
