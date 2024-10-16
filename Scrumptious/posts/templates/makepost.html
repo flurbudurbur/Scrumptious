@@ -6,25 +6,130 @@
 {% block content %}
 
     <div class="mx-auto flex items-center w-full justify-center min-h-[70vh] bg-accounts bg-cover bg-center p-10">
-        <div class="flex flex-col gap-2">
-            <div class="flex flex-col gap-2">
-                <form method="POST" enctype= multipart/form-data>
-                    {% csrf_token %}
-                    <div class="flex-col">
-                        {% for field in form %}
-                            <div class="flex flex-col gap-2">
-                                <label for="{{ field.name }}" class="capitalize">{{ field.name }}<span class="text-small text-red-400">*</span></label>
-                                {{ field }}
+        <div class="flex flex-col gap-2 bg-white/40 p-4 rounded sm:bg-none">
+            <form method="POST" enctype="multipart/form-data" class="flex flex-col gap-2">
+                {% csrf_token %}
+                <div class="flex-col flex gap-2">
+                    <div class="flex flex-col gap-2">
+                        <label for="title" class="capitalize">Title<span
+                                class="text-small text-red-400">*</span></label>
+                        <input id="title" name="title" type="text" required
+                               class="p-2 border border-secondary md:border-gray-300 rounded">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="description" class="capitalize">description<span
+                                class="text-small text-red-400">*</span></label>
+                        <textarea id="description" name="description" type="text"
+                                  class="p-2 border border-secondary md:border-gray-300 rounded" rows="3" required></textarea>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div id="ingredients-list-div" class="hidden flex-col">
+                            <h1>Ingredients List</h1>
+                            <ol id="ingredients-list" class="list-decimal">
+                                <!-- ingredients in here with JS -->
+                            </ol>
+                        </div>
+                        <label for="ingredients" class="capitalize">ingredients</label>
+                        <div class="relative flex gap-1">
+                            <input id="ingredients" name="ingredients" type="text"
+                                   class="p-2 w-full border border-secondary md:border-gray-300 rounded">
+                            <button type="button" id="add-ingredient"
+                                    class="capitalize border-2 border-primary p-2 rounded">Add
+                            </button>
+                            <div id="ingredients-menu"
+                                 class="absolute top-12 hidden h-fit w-full bg-white border-black rounded border-2 flex-col">
+                                {% for ingredient in ingredients %}
+                                    <p onclick="addIngredientToInput('{{ ingredient.name }}')"
+                                       class="transition hover:bg-gray-100 mx-2 capitalize font-mono">{{ ingredient.name }}</p>
+                                {% endfor %}
                             </div>
-                        {% endfor %}
-                        <div class="flex justify-between items-center">
-                            <button type="submit" class="bg-primary text-white p-2 rounded">Create</button>
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="preparation" class="capitalize">preparation</label>
+                        <textarea id="preparation" name="preparation" type="text"
+                                  class="p-2 border border-secondary md:border-gray-300 rounded" rows="3" required></textarea>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="image" class="capitalize">image</label>
+                        <input id="image" name="image" type="file"
+                               class="p-2 border border-secondary md:border-gray-300 rounded bg-white">
+                    </div>
+                </div>
+                <div class="flex justify-between items-center w-full">
+                    <button type="submit" class="bg-primary w-full text-white p-2 rounded">Create</button>
+                </div>
+            </form>
         </div>
     </div>
+    <script>
+        const addIngredient = document.getElementById('add-ingredient');
+        const ingredientsList = document.getElementById('ingredients-list');
+        const ingredientsInput = document.getElementById('ingredients');
+        const ingredientsListDiv = document.getElementById('ingredients-list-div');
+        const ingredientsMenu = document.getElementById('ingredients-menu');
+        const deleteSvg = "{% static 'images/delete.svg' %}";
+        const editSvg = "{% static 'images/edit.svg' %}";
+
+        addIngredient.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (ingredientsInput.value === '') {
+                return;
+            }
+            ingredientsListDiv.classList.remove('hidden');
+            ingredientsListDiv.classList.add('flex');
+            const ingredient = document.createElement('li');
+            ingredient.id = `${ingredientsInput.value}-li`;
+            ingredient.classList.add('flex', 'justify-between', 'items-center');
+            ingredient.innerHTML = `
+                <span class="m-1 font-mono capitalize">${ingredientsInput.value}</span>
+                <input type="hidden" id="${ingredientsInput.value}-id" name="ingredients[]" value="${ingredientsInput.value}"/>
+                <div>
+                    <button type="button" class="h-5 w-5">
+                        <img src="${editSvg}" alt="edit">
+                    </button>
+                    <button onclick="deleteIngredient('${ingredientsInput.value}-li')" type="button" class="h-5 w-5">
+                        <img src="${deleteSvg}" alt="delete">
+                    </button>
+                </div>
+            `;
+            ingredientsList.appendChild(ingredient);
+            ingredientsInput.value = '';
+        });
+
+        // open menu
+        ingredientsInput.addEventListener('focus', (event) => {
+            ingredientsMenu.classList.remove('hidden');
+            ingredientsMenu.classList.add('flex');
+        });
+
+        // close menu
+        document.addEventListener('mousedown', (event) => {
+            if (!ingredientsMenu.contains(event.target) && event.target !== ingredientsInput) {
+                ingredientsMenu.classList.remove('flex');
+                ingredientsMenu.classList.add('hidden');
+            }
+        });
+
+        // add ingredient to input
+        function addIngredientToInput(ingredient) {
+            ingredientsInput.value = ingredient;
+            ingredientsMenu.classList.remove('flex');
+            ingredientsMenu.classList.add('hidden');
+        }
+
+        function deleteIngredient(ingredient) {
+            const ingredientElement = document.getElementById(ingredient);
+            ingredientElement.remove();
+        }
+
+        function editIngredient(ingredient) {
+            const ingredientElement = document.getElementById(ingredient);
+            const ingredientInput = document.getElementById(`${ingredient}-id`);
+            ingredientsInput.value = ingredientInput.value;
+            ingredientElement.remove();
+        }
+    </script>
 
 
 {% endblock %}

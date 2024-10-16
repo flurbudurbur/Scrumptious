@@ -1,8 +1,8 @@
-from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 from django.shortcuts import render
 from django.core.paginator import Paginator
 
-from posts.models import Post
+from posts.models import Post, Likes, Bookmarks
 
 
 # @login_required
@@ -15,8 +15,10 @@ def home_view(request):
     context = {'page_obj': page_obj}
     return render(request, 'home.html', context)
 
+
 def about_view(request):
     return render(request, 'about.html', {})
+
 
 def career_view(request):
     return render(request, 'careers.html', {})
