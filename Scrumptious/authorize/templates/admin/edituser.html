@@ -6,16 +6,17 @@
 {% block content %}
 <section class="min-h-[70vh]">
     <div class="mx-auto w-full justify-center min-h-[70vh] bg-accounts bg-cover bg-center p-10">
-        <h1 class="text-4xl font-bold mb-4">Edit User</h1>
+        <div class="w-96 mx-auto">
+            <h1 class="text-4xl font-bold mb-4">Edit User</h1>
         <form method="post">
             {% csrf_token %}
             <div class="flex flex-col gap-2">
                 <label for="username" class="capitalize">Username <span class="text-small text-red-400">*</span></label>
                 <input type="text" id="username" name="username" value="{{ user.username }}" class="p-2 border rounded">
-                
+
                 <label for="email" class="capitalize">Email <span class="text-small text-red-400">*</span></label>
                 <input type="email" id="email" name="email" value="{{ user.email }}" class="p-2 border rounded">
-                
+
                 <label class="flex items-center">
                     <input type="checkbox" name="is_active" {% if user.is_active %}checked{% endif %} class="mr-2">
                     Active
@@ -27,8 +28,13 @@
                 </label>
                 
                 <button type="submit" class="bg-primary text-white p-2 rounded">Save Changes</button>
+                <div>
+                    <a href="{% url 'admin' %}" class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2 bg-white">Cancel</a>
+                    <button type="submit" class="transition hover:text-text/75 rounded border-2 border-primary bg-primary p-2 text-white">Save Changes</button>
+                </div>
             </div>
         </form>
+        </div>
     </div>
 </section>
 {% endblock %}

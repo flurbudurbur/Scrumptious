@@ -1,0 +1,41 @@
+{% load static %}
+<a href="{% url 'post' post.id %}">
+    <article class="border-2 border-secondary rounded p-2 ">
+        <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+            <div class="flex  flex-col md:col-start-1 md:justify-between">
+                <div>
+                    <h1 class="text-xl font-bold font-mono">{{ post.title }}</h1>
+                    <div class="flex items-center justify-start">
+                        <img src="{% static 'images/profile.svg' %}" alt="" class="w-6 h-6">
+                        <h3 class="text-l italic m-1">{{ post.user }}</h3>
+                    </div>
+                    <div class="h-full">
+                        <p class="whitespace-normal line-clamp-3">
+                            {{ post.description }}
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-row justify-between mx-10 text-right">
+                    <div class="grid grid-cols-2 gap-1 items-center">
+                        <p>1337</p>
+                        <img src="{% static 'images/heart.svg' %}" alt="like"
+                             class="w-4 h-4"></div>
+                    <div class="grid grid-cols-2 gap-1 items-center">
+                        <p>420</p>
+                        <img src="{% static 'images/bookmark.svg' %}" alt="bookmark"
+                             class="h-4 w-4">
+                    </div>
+                    <div class="grid grid-cols-2 gap-1 items-center">
+                        <p>69</p>
+                        <img src="{% static 'images/comment.svg' %}" alt="comments"
+                             class="h-4 w-4">
+                    </div>
+                </div>
+            </div>
+            <figure class="md:col-start-2 row-start-1">
+                <img src="{{ post.image }}" alt="image for {{ post.title }}"
+                     class="object-cover border-2 border-black rounded max-h-40 w-full">
+            </figure>
+        </div>
+    </article>
+</a>
