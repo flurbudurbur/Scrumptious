@@ -27,10 +27,10 @@ class Comments(models.Model):
 
 class Likes(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(User, on_delete=models.CASCADE, related_name="liked_post")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="liked_post")
     liked = models.BooleanField(default=0)
 
 class Bookmarks(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bookmarked_post")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="bookmarked_post")
     bookmarked = models.BooleanField(default=0)

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comments
+from .models import Post, Comments, Likes
 
 
 class MakePost(forms.ModelForm):
@@ -47,5 +47,5 @@ class CommentForm(forms.ModelForm):
 
 class LikeForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ['likes']
+        model = Likes
+        fields = ['liked']

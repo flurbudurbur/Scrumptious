@@ -1,5 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
 
 from Scrumptious.forms import AddIngredient
@@ -38,24 +37,23 @@ def create_post_view(request):
 
 def post_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    comments = Comments.objects.filter(post_id=post)
-    likes = Likes.objects.filter(post_id=post_id).count()
-    bookmarks = Bookmarks.objects.filter(post_id=post_id).count()
-    form = CommentForm()
-    context = {'post': post, 'comments': comments, 'form': form, 'like_count': likes, 'bookmark_count': bookmarks}
     if request.method == 'POST':
         if request.POST.get('action') == 'like':
-            form = LikeForm(request.POST)
-            if form.is_valid():
-                liked = Likes.objects.filter(user=request.user, post_id=post_id)
-                if liked.exists():
-                    liked.delete()
-                    return redirect('post', post_id=post.id)
-                like = form.save(commit=False)
-                like.user = request.user
-                like.post = post.id
+            like, created = Likes.objects.get_or_create(user=request.user, post=post)
+            if not created:
+                like.delete()
+            else:
+                like.liked = True
                 like.save()
-                return redirect('post', post_id=post.id)
+            return redirect('post', post_id=post.id)
+        elif request.POST.get('action') == 'bookmark':
+            bookmark, created = Bookmarks.objects.get_or_create(user=request.user, post=post)
+            if not created:
+                bookmark.delete()
+            else:
+                bookmark.bookmarked = True
+                bookmark.save()
+            return redirect('post', post_id=post.id)
         else:
             form = CommentForm(request.POST)
             if form.is_valid():
@@ -64,4 +62,9 @@ def post_view(request, post_id):
                 comment.post = post
                 comment.save()
                 return redirect('post', post_id=post.id)
+    comments = Comments.objects.filter(post_id=post)
+    likes = Likes.objects.filter(post_id=post_id).count()
+    bookmarks = Bookmarks.objects.filter(post_id=post_id).count()
+    form = CommentForm()
+    context = {'post': post, 'comments': comments, 'form': form, 'like_count': likes, 'bookmark_count': bookmarks}
     return render(request, 'post.html', context)

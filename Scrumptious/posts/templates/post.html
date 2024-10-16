@@ -19,10 +19,14 @@
                                 <img src="{% static 'images/heart.svg' %}" alt="like" class="w-4 h-4">
                             </button>
                         </form>
-                        <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>{{ bookmark_count }}</p>
-                            <img src="{% static 'images/bookmark.svg' %}" alt="bookmark" class="h-4 w-4">
-                        </div>
+                        <form method="post" action="{% url 'post' post.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="bookmark">
+                            <button type="submit" class="grid grid-cols-2 gap-1 items-center">
+                                <p>{{ bookmark_count }}</p>
+                                <img src="{% static 'images/bookmark.svg' %}" alt="like" class="w-4 h-4">
+                            </button>
+                        </form>
                         <div class="grid grid-cols-2 gap-1 items-center">
                             <p>{{ comments.count }}</p>
                             <img src="{% static 'images/comment.svg' %}" alt="comments" class="h-4 w-4">
