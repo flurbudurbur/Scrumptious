@@ -22,6 +22,12 @@
                     Active
                 </label>
 
+                <label class="flex items-center">
+                    <input type="checkbox" name="is_staff" {% if user.is_staff %}checked{% endif %} class="mr-2">
+                    Active
+                </label>
+                
+                <button type="submit" class="bg-primary text-white p-2 rounded">Save Changes</button>
                 <div>
                     <a href="{% url 'admin' %}" class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2 bg-white">Cancel</a>
                     <button type="submit" class="transition hover:text-text/75 rounded border-2 border-primary bg-primary p-2 text-white">Save Changes</button>
