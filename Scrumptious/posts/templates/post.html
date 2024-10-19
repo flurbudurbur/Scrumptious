@@ -40,11 +40,13 @@
                 </figure>
             {% endif %}
 
-            {% if post.ingredients %}
+            {% if ingredients %}
                 <div>
                     <h3 class="italic font-mono text-lg capitalize">Ingredients</h3>
                     <ol>
-                        <li>{{ post.ingredients }}</li>
+                        {% for ingredient in ingredients %}
+                            <li>{{ ingredient }}</li>
+                        {% endfor %}
                     </ol>
                 </div>
             {% endif %}

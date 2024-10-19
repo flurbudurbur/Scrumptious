@@ -5,7 +5,7 @@ from Scrumptious.forms import AddIngredient
 from Scrumptious.models import Ingredients
 from .forms import MakePost, CommentForm, LikeForm
 
-from .models import Post, Comments, Bookmarks, Likes
+from .models import Post, Comments, Bookmarks, Likes, PostIngredients
 
 
 def home_view(request):
@@ -17,22 +17,24 @@ def home_view(request):
 def create_post_view(request):
     if request.method == 'POST':
         form = MakePost(request.POST, request.FILES)
-        ingredients = request.POST.getlist('ingredients[]')
+        ingredients = request.POST.getlist('ingredients-ls')
         for ingredient in ingredients:
             ingredient_form = AddIngredient({'name': ingredient, 'created_by': request.user})
             if not Ingredients.objects.filter(name=ingredient).exists() and ingredient_form.is_valid():
                 ingredient_form.save()
         ingredient_ids = Ingredients.objects.filter(name__in=ingredients).values_list('id', flat=True)
-        form.ingredients = ingredient_ids
         if form.is_valid():
             post = form.save(commit=False)
             post.user = request.user
             post.save()
+            for ingredient_id in ingredient_ids:
+                PostIngredients.objects.create(post=post, ingredient_id=ingredient_id)
             return redirect('home')
-    else:
-        ingredients = Ingredients.objects.all()
-        form = MakePost()
-        return render(request, 'makepost.html', context={'form': form, 'ingredients': ingredients})
+        else:
+            print(form.errors)
+    ingredient_list = Ingredients.objects.all()
+    form = MakePost()
+    return render(request, 'makepost.html', context={'form': form, 'ingredients_list': ingredient_list})
 
 
 def post_view(request, post_id):
@@ -62,9 +64,17 @@ def post_view(request, post_id):
                 comment.post = post
                 comment.save()
                 return redirect('post', post_id=post.id)
+    ingredients = PostIngredients.objects.filter(post_id=post_id).values_list('ingredient__name', flat=True)
     comments = Comments.objects.filter(post_id=post)
     likes = Likes.objects.filter(post_id=post_id).count()
     bookmarks = Bookmarks.objects.filter(post_id=post_id).count()
     form = CommentForm()
-    context = {'post': post, 'comments': comments, 'form': form, 'like_count': likes, 'bookmark_count': bookmarks}
+    context = {
+        'post': post,
+        'comments': comments,
+        'form': form,
+        'like_count': likes,
+        'bookmark_count': bookmarks,
+        'ingredients': ingredients
+    }
     return render(request, 'post.html', context)

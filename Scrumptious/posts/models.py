@@ -1,11 +1,11 @@
-from django.core.validators import validate_comma_separated_integer_list
 from django.db import models
 from django.contrib.auth.models import User
+
+from Scrumptious.models import Ingredients
 
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    ingredients = models.CharField(validators=[validate_comma_separated_integer_list], max_length=100)
     preparation = models.TextField(null=True, blank=True)
     description = models.TextField()
     likes = models.IntegerField(default=0)
@@ -34,3 +34,7 @@ class Bookmarks(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="bookmarked_post")
     bookmarked = models.BooleanField(default=0)
+
+class PostIngredients(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredients, on_delete=models.CASCADE)

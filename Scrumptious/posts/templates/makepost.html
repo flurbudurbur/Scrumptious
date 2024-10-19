@@ -9,6 +9,7 @@
         <div class="flex flex-col gap-2 bg-white/40 p-4 rounded sm:bg-none">
             <form method="POST" enctype="multipart/form-data" class="flex flex-col gap-2">
                 {% csrf_token %}
+{#                {{ form.as_p }}#}
                 <div class="flex-col flex gap-2">
                     <div class="flex flex-col gap-2">
                         <label for="title" class="capitalize">Title<span
@@ -20,7 +21,8 @@
                         <label for="description" class="capitalize">description<span
                                 class="text-small text-red-400">*</span></label>
                         <textarea id="description" name="description" type="text"
-                                  class="p-2 border border-secondary md:border-gray-300 rounded" rows="3" required></textarea>
+                                  class="p-2 border border-secondary md:border-gray-300 rounded" rows="3"
+                                  required></textarea>
                     </div>
                     <div class="flex flex-col gap-2">
                         <div id="ingredients-list-div" class="hidden flex-col">
@@ -38,7 +40,7 @@
                             </button>
                             <div id="ingredients-menu"
                                  class="absolute top-12 hidden h-fit w-full bg-white border-black rounded border-2 flex-col">
-                                {% for ingredient in ingredients %}
+                                {% for ingredient in ingredients_list %}
                                     <p onclick="addIngredientToInput('{{ ingredient.name }}')"
                                        class="transition hover:bg-gray-100 mx-2 capitalize font-mono">{{ ingredient.name }}</p>
                                 {% endfor %}
@@ -48,7 +50,7 @@
                     <div class="flex flex-col gap-2">
                         <label for="preparation" class="capitalize">preparation</label>
                         <textarea id="preparation" name="preparation" type="text"
-                                  class="p-2 border border-secondary md:border-gray-300 rounded" rows="3" required></textarea>
+                                  class="p-2 border border-secondary md:border-gray-300 rounded" rows="3"></textarea>
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="image" class="capitalize">image</label>
@@ -82,17 +84,17 @@
             ingredient.id = `${ingredientsInput.value}-li`;
             ingredient.classList.add('flex', 'justify-between', 'items-center');
             ingredient.innerHTML = `
-                <span class="m-1 font-mono capitalize">${ingredientsInput.value}</span>
-                <input type="hidden" id="${ingredientsInput.value}-id" name="ingredients[]" value="${ingredientsInput.value}"/>
-                <div>
-                    <button type="button" class="h-5 w-5">
-                        <img src="${editSvg}" alt="edit">
-                    </button>
-                    <button onclick="deleteIngredient('${ingredientsInput.value}-li')" type="button" class="h-5 w-5">
-                        <img src="${deleteSvg}" alt="delete">
-                    </button>
-                </div>
-            `;
+        <span class="m-1 font-mono capitalize">${ingredientsInput.value}</span>
+        <input type="hidden" id="${ingredientsInput.value}-id" name="ingredients-ls" value="${ingredientsInput.value}"/>
+        <div>
+            <button type="button" class="h-5 w-5">
+                <img src="${editSvg}" alt="edit">
+            </button>
+            <button onclick="deleteIngredient('${ingredientsInput.value}-li')" type="button" class="h-5 w-5">
+                <img src="${deleteSvg}" alt="delete">
+            </button>
+        </div>
+    `;
             ingredientsList.appendChild(ingredient);
             ingredientsInput.value = '';
         });
