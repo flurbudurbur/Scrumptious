@@ -70,10 +70,13 @@
             <div class="w-full h-96 overflow-y-scroll grid grid-cols-1 gap-2">
                 {% for comment in comments %}
                     <div class="flex gap-2 rounded border-2 border-secondary">
-                        <div class="col-span-2 flex flex-row gap-1 border-r-black border-r-2 py-1 pl-1 pr-2 m-1 min-w-fit">
+                        <div class="grid grid-cols-1 border-r-black border-r-2 py-1 pl-1 pr-2 m-1 min-w-fit">
+                            <div class="col-span-2 flex flex-row gap-1">
                             <img src="{% static 'images/profile.svg' %}" alt="Profile Picture"
                                  class="rounded-full w-6 h-6">
                             <p>{{ comment.user }}</p>
+                        </div>
+                            <p>{{ comment.created_at }}</p>
                         </div>
                         <p class="col-span-3 content-center">{{ comment.comment }}</p>
                     </div>
