@@ -2,14 +2,16 @@ from django.db.models import Count
 from django.shortcuts import render
 from django.core.paginator import Paginator
 
-from posts.models import Post, Likes, Bookmarks, Comments
+from posts.models import Post, Likes, Bookmarks, Comments, PostIngredients
 from django.db.models import Q
 
 
 def home_view(request):
     query = request.GET.get('values')
     if query:
-        posts = Post.objects.filter(Q(ingredients__icontains=query) | Q(title__icontains=query)).order_by('-created_at')
+        posts = Post.objects.filter(
+            Q(postingredients__ingredient__name__icontains=query) | Q(title__icontains=query)
+        ).distinct().order_by('-created_at')
     else:
         posts = Post.objects.all().order_by('-created_at')
     for post in posts:
