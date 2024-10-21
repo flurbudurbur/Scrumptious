@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Post{% endblock %}
 {% block content %}
-    <article class="mx-3 md:max-w-[64rem] md:mx-auto grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
+    <article class="mx-3 md:px-3 px-0 md:max-w-[64rem] md:mx-auto grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
         <div>
             <div class="flex md:flex-row flex-col justify-between">
                 <div>
@@ -11,16 +11,24 @@
                 </div>
                 <div class="content-center">
                     <div class="grid grid-cols-3 gap-2 items-center justify-end w-fit my-2 md:my-0 mx-auto md:mx-0">
+                        <form method="post" action="{% url 'post' post.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="like">
+                            <button type="submit" class="grid grid-cols-2 gap-1 items-center">
+                                <p>{{ like_count }}</p>
+                                <img src="{% static 'images/heart.svg' %}" alt="like" class="w-4 h-4">
+                            </button>
+                        </form>
+                        <form method="post" action="{% url 'post' post.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="bookmark">
+                            <button type="submit" class="grid grid-cols-2 gap-1 items-center">
+                                <p>{{ bookmark_count }}</p>
+                                <img src="{% static 'images/bookmark.svg' %}" alt="like" class="w-4 h-4">
+                            </button>
+                        </form>
                         <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>1337</p>
-                            <img src="{% static 'images/heart.svg' %}" alt="like" class="w-4 h-4">
-                        </div>
-                        <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>420</p>
-                            <img src="{% static 'images/bookmark.svg' %}" alt="bookmark" class="h-4 w-4">
-                        </div>
-                        <div class="grid grid-cols-2 gap-1 items-center">
-                            <p>69</p>
+                            <p>{{ comments.count }}</p>
                             <img src="{% static 'images/comment.svg' %}" alt="comments" class="h-4 w-4">
                         </div>
                     </div>
@@ -32,11 +40,13 @@
                 </figure>
             {% endif %}
 
-            {% if post.ingredients %}
+            {% if ingredients %}
                 <div>
                     <h3 class="italic font-mono text-lg capitalize">Ingredients</h3>
                     <ol>
-                        <li>{{ post.ingredients }}</li>
+                        {% for ingredient in ingredients %}
+                            <li>{{ ingredient }}</li>
+                        {% endfor %}
                     </ol>
                 </div>
             {% endif %}

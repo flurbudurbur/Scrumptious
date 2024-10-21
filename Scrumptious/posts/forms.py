@@ -1,14 +1,21 @@
 from django import forms
-from .models import Post, Comments
+
+from Scrumptious.models import Ingredients
+from .models import Post, Comments, Likes
 
 
 class MakePost(forms.ModelForm):
+    # ingredients = forms.ModelChoiceField(
+    #     queryset=Ingredients.objects.all().get('name'),
+    #     widget=forms.SelectMultiple(attrs={'class': 'p-2 border border-gray-300 rounded'}),
+    #     required=True
+    # )
+
     class Meta:
         model = Post
-        fields = ['title', 'ingredients', 'preparation', 'description', 'image']
+        fields = ['title', 'preparation', 'description', 'image']
         labels = {
             'title': 'Title',
-            'ingredients': 'Ingredients',
             'preparation': 'Preparation',
             'description': 'Description',
             'image': 'Image',
@@ -19,8 +26,8 @@ class MakePost(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'p-2 border border-gray-300 rounded'
         self.fields['title'].widget.attrs['placeholder'] = 'Title'
-        self.fields['ingredients'].widget.attrs['placeholder'] = 'Ingredients go here..'
-        self.fields['ingredients'].widget.attrs['rows'] = 3
+        # self.fields['ingredients'].widget.attrs['placeholder'] = 'Ingredients go here..'
+        # self.fields['ingredients'].widget.attrs['rows'] = 3
         self.fields['preparation'].widget.attrs['placeholder'] = 'Preparation goes here..'
         self.fields['preparation'].widget.attrs['rows'] = 3
         self.fields['description'].widget.attrs['placeholder'] = 'Description goes here...'
@@ -44,3 +51,9 @@ class CommentForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'p-2 border border-gray-300 rounded'
         self.fields['comment'].widget.attrs['placeholder'] = 'Comment'
         self.fields['comment'].widget.attrs['rows'] = 3
+
+
+class LikeForm(forms.ModelForm):
+    class Meta:
+        model = Likes
+        fields = ['liked']
