@@ -6,12 +6,11 @@
                 <div>
                     <h1 class="text-xl font-bold font-mono">{{ post.title }}</h1>
                     <div class="flex items-center justify-start">
-                        <img src="{% static 'images/profile.svg' %}" alt="" class="w-6 h-6">
-                        {%  if user.is_authenticated %}
+                        {% if user.is_authenticated %}
+                            <img src="{% static 'images/profile.svg' %}" alt="" class="w-6 h-6">
                             <h3 class="text-l italic m-1">{{ post.user }}</h3>
-                        {% else %}
-                            <h3 class="text-l italic m-1">Unknown</h3>
                         {% endif %}
+                        <p>{{ post.created_at }}</p>
                     </div>
                     <div class="h-full">
                         <p class="whitespace-normal line-clamp-3">
