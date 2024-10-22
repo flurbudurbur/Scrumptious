@@ -12,9 +12,9 @@
 </head>
 <body class="bg-gray-100">
     {% include 'nav.html' %}
-    <div class="container mx-auto p-6">
-        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
-            <h1 class="text-4xl font-bold text-center text-gray-800">Welcome {{ user.username }}!</h1>
+    <div class="mx-3 md:max-w-[75%] md:mx-auto md:px-3">
+        <div class="bg-white shadow-md rounded-lg p-2.5">
+            <h1 class="text-xl font-bold font-mono p-5 text-center">Welcome {{ user.username }}!</h1>
         </div>
 
         {% if messages %}
@@ -26,16 +26,17 @@
         {% endif %}
 
         <div class="mt-6">
-            <h2 class="text-2xl font-semibold mb-2">Your Posts</h2>
-            <ul class="bg-white rounded-lg shadow-md p-4">
+            <h2 class="text-l font-bold font-mono p-2.5">Your Posts</h2>
+            <ul class=" inline bg-white rounded-lg shadow-md p-4">
                 {% for post in posts %}
                     <li class="border-b border-orange-500 py-2 flex items-center mb-4">
                         {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-16 h-16 object-cover mr-6 border border-gray-300 p-1 rounded-md shadow-sm">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="object-cover border-2 border-black rounded max-h-40 w-96">
                         {% endif %}
-                        <div>
+                        <div class=" gap-1 mx-10 text-left">
                             <a href="{% url 'post' post.id %}" class="text-xl font-semibold text-blue-600 hover:underline">{{ post.title }}</a>
-                            <p class="text-gray-600 text-sm">{{ post.created_at }}</p>
+                            <p class="text-gray-600 text-m capitalize">{{ post.user }}</p>
+                            <p class="text-gray-600 text-m italic">{{ post.created_at }}</p>
                         </div>
                     </li>
                 {% empty %}
@@ -45,16 +46,17 @@
         </div>
 
         <div class="mt-6">
-            <h2 class="text-2xl font-semibold mb-2">Bookmarked Posts</h2>
-            <ul class="bg-white rounded-lg shadow-md p-4">
+            <h2 class="text-l font-bold font-mono p-2.5">Bookmarked Posts</h2>
+            <ul class="inline bg-white rounded-lg shadow-md p-4">
                 {% for post in bookmarked_posts %}
                     <li class="border-b border-orange-500 py-2 flex items-center mb-4">
                         {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-16 h-16 object-cover mr-6 border border-gray-300 p-1 rounded-md shadow-sm">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="object-cover border-2 border-black rounded max-h-40 w-96">
                         {% endif %}
-                        <div>
+                        <div class="gap-1 mx-10 text-left">
                             <a href="{% url 'post' post.id %}" class="text-xl font-semibold text-blue-600 hover:underline">{{ post.title }}</a>
-                            <p class="text-gray-600 text-sm">{{ post.created_at }}</p>
+                            <p class="text-gray-600 text-m capitalize">{{ post.user }}</p>
+                            <p class="text-gray-600 text-m italic">{{ post.created_at }}</p>
                         </div>
                     </li>
                 {% empty %}

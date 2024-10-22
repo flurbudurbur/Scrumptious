@@ -1,9 +1,9 @@
 <li>
-    <a class="text-text transition hover:text-text/75" href="{% url 'about' %}"> About </a>
+    <a class="text-text transition hover:text-text/75" href="{% url 'about' %}"> Over Ons </a>
 </li>
 
 <li>
-    <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Recipes </a>
+    <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Recepten </a>
 </li>
 
 
@@ -12,11 +12,11 @@
 
     <li>
         <a class="text-text transition hover:text-text/75"
-           href="{% url 'create' %}"> Create Post </a>
+           href="{% url 'create' %}"> Post Maken </a>
     </li>
 
     <li>
-<a class="text-text transition hover:text-text/75" href="{% url 'profile' %}"> {{ user.username }} </a>
+<a class="text-text transition hover:text-text/75 font-bold capitalize" href="{% url 'profile' %}"> {{ user.username }} </a>
     </li>
 
     {% if user.is_staff %}
@@ -29,7 +29,7 @@
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
             <button class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2" type="submit">
-                Log Out
+                Uitloggen
             </button>
         </form>
     </li>
@@ -38,12 +38,12 @@
 
     <li>
         <a class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2"
-           href="{% url 'register' %}"> Create Account </a>
+           href="{% url 'register' %}"> Account maken </a>
     </li>
 
     <li>
         <a class="transition hover:text-text/75 rounded border-2 border-primary bg-primary p-2 text-white"
-           href="{% url 'login' %}"> Log In </a>
+           href="{% url 'login' %}"> Inloggen </a>
     </li>
 
 {% endif %}
