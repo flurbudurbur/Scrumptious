@@ -1,16 +1,22 @@
 <li>
-    <a class="text-text transition hover:text-text/75" href="{% url 'about' %}"> Over ons </a>
+    <a class="text-text transition hover:text-text/75" href="{% url 'about' %}"> About </a>
 </li>
+
+<li>
+    <a class="text-text transition hover:text-text/75" href="{% url 'home' %}"> Recipes </a>
+</li>
+
+
 
 {% if user.is_authenticated %}
 
     <li>
         <a class="text-text transition hover:text-text/75"
-           href="{% url 'create' %}"> Post maken</a>
+           href="{% url 'create' %}"> Create Post </a>
     </li>
 
     <li>
-        <a class="text-text transition hover:text-text/75 font-bold" href="#"> {{ user.username }} </a>
+<a class="text-text transition hover:text-text/75" href="{% url 'profile' %}"> {{ user.username }} </a>
     </li>
 
     {% if user.is_staff %}
@@ -23,7 +29,7 @@
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
             <button class="text-text transition hover:text-text/75 rounded border-2 border-primary p-2" type="submit">
-                Uitloggen
+                Log Out
             </button>
         </form>
     </li>

@@ -1,26 +1,43 @@
-
 {% load static tailwind_tags %}
-
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+<head>
     <title>{% block title %}{% endblock %} - Scrumptious</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{% tailwind_css %}
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-	</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
 
-	<body class="">
-        {% include 'nav.html' %}
-        {% if messages %}
+<body class="bg-gray-100">
+    {% include 'nav.html' %}
+
+    {% if messages %}
+        <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4">
             {% for message in messages %}
-                {{ message }}
+                <p>{{ message }}</p>
             {% endfor %}
-        {% endif %}
-        {% block content %}{% endblock %}
-        {% include 'footer.html' %}
-	</body>
+        </div>
+    {% endif %}
+
+    {% block content %}
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold mb-4">Recent Posts</h1>
+        <ul class="bg-white rounded-lg shadow-md p-4">
+            {% for post in posts %}
+                <li class="border-b border-gray-200 py-2">
+                    <a href="{% url 'post' post.id %}" class="text-blue-600 hover:underline">{{ post.title }}</a>
+                    <p class="text-gray-500 text-sm">{{ post.created_at }}</p>
+                </li>
+            {% empty %}
+                <li class="text-gray-500">No posts available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}
+
+    {% include 'footer.html' %}
+</body>
 </html>
