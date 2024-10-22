@@ -8,7 +8,9 @@
                 <div>
                     <h1 class="font-mono font-bold text-2xl">{{ post.title }}</h1>
                     {% if user.is_authenticated %}
-                        <h2 class="italic text-lg">By {{ post.user }}</h2>
+                        <h2 class="text-lg">Door <span class="font-bold">{{ post.user }}</span></h2>
+                        <p class="italic">{{ post.created_at }}</p>
+
                     {% endif %}
                 </div>
                 <div class="content-center">
@@ -44,55 +46,58 @@
 
             {% if ingredients %}
                 <div>
-                    <h3 class="italic font-mono text-lg capitalize">Ingredients</h3>
-                    <ol>
+                    <h3 class="italic font-mono text-lg capitalize pb-1.5 pt-2.5">Ingrediënten</h3>
+                    <ul class="list-disc pl-5">
                         {% for ingredient in ingredients %}
                             <li>{{ ingredient }}</li>
                         {% endfor %}
-                    </ol>
+                    </ul>
                 </div>
             {% endif %}
 
             {% if post.preparation %}
                 <div>
-                    <h3 class="italic font-mono text-lg capitalize">preparation</h3>
+                    <h3 class="italic font-mono text-lg capitalize pb-1.5 pt-2.5">bereidingswijze</h3>
                     <ol>
-                        <li>{{ post.preparation }}</li>
+                        <li class="text-justify pb-5">{{ post.preparation|linebreaks }}</li>
                     </ol>
                 </div>
             {% endif %}
             <div>
-                <h3 class="italic font-mono text-lg capitalize">Description</h3>
+                <h3 class="italic font-mono text-lg capitalize pb-1.5 pt-2.5">beschrijving</h3>
                 <ol>
-                    <li>{{ post.description }}</li>
+                    <li class="text-justify pb-5">{{ post.description|linebreaks }}</li>
                 </ol>
             </div>
         </div>
         <div class="flex gap-2 flex-col">
-            <div class="w-full h-96 overflow-y-scroll grid grid-cols-1 gap-2">
+            <div class="w-full overflow-y-scroll grid grid-cols-1 gap-2">
                 {% for comment in comments %}
                     <div class="flex gap-2 rounded border-2 border-secondary">
                         <div class="grid grid-cols-1 border-r-black border-r-2 py-1 pl-1 pr-2 m-1 min-w-fit">
                             <div class="col-span-2 flex flex-row gap-1">
                             <img src="{% static 'images/profile.svg' %}" alt="Profile Picture"
                                  class="rounded-full w-6 h-6">
-                            <p>{{ comment.user }}</p>
+                            <p class="font-bold">{{ comment.user }}</p>
                         </div>
-                            <p>{{ comment.created_at }}</p>
+                            <p class="italic text-xs">{{ comment.created_at }}</p>
                         </div>
                         <p class="col-span-3 content-center">{{ comment.comment }}</p>
                     </div>
                 {% endfor %}
             </div>
-            <form method="post">
+                {% if user.is_authenticated%}
+                    <form method="post">
                 {% csrf_token %}
                 <div class="flex flex-col gap-2">
-                    <label for="comment" class="hidden">Comment:</label>
-                    <textarea type="text" placeholder="Comment..." id="comment" name="comment"
+                    <label for="comment" class="hidden">Reactie:</label>
+                    <textarea type="text" placeholder="Plaats uw reactie..." id="comment" name="comment"
                               class="rounded" rows="3"></textarea>
-                    <button type="submit" class="border-2 rounded border-primary p-2 text-text">Comment</button>
+                    <button type="submit" class="border-2 rounded border-primary p-2 text-text">Reactie</button>
                 </div>
-            </form>
+                </form>
+                {% endif %}
+
         </div>
     </article>
 {% endblock %}

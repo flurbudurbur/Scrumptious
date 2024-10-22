@@ -8,17 +8,17 @@
                     <div class="flex items-center justify-start">
                         {% if user.is_authenticated %}
                             <img src="{% static 'images/profile.svg' %}" alt="" class="w-6 h-6">
-                            <h3 class="text-l italic m-1">{{ post.user }}</h3>
+                            <h3 class="text-l m-1">{{ post.user }}</h3>
                         {% endif %}
-                        <p>{{ post.created_at }}</p>
+                        <p class="italic text-s">{{ post.created_at }}</p>
                     </div>
                     <div class="h-full">
-                        <p class="whitespace-normal line-clamp-3">
+                        <p class="whitespace-normal line-clamp-3 text-justify">
                             {{ post.description }}
                         </p>
                     </div>
                 </div>
-                <div class="flex flex-row justify-between mx-10 text-right">
+                <div class="flex flex-row gap-1 mx-10 text-right">
                     <div class="grid grid-cols-2 gap-1 items-center">
                         <p>{{ post.like_count }}</p>
                         <img src="{% static 'images/heart.svg' %}" alt="like"

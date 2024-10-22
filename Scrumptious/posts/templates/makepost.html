@@ -12,13 +12,13 @@
 {#                {{ form.as_p }}#}
                 <div class="flex-col flex gap-2">
                     <div class="flex flex-col gap-2">
-                        <label for="title" class="capitalize">Title<span
+                        <label for="title" class="capitalize">titel<span
                                 class="text-small text-red-400">*</span></label>
                         <input id="title" name="title" type="text" required
                                class="p-2 border border-secondary md:border-gray-300 rounded">
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label for="description" class="capitalize">description<span
+                        <label for="description" class="capitalize">beschrijving<span
                                 class="text-small text-red-400">*</span></label>
                         <textarea id="description" name="description" type="text"
                                   class="p-2 border border-secondary md:border-gray-300 rounded" rows="3"
@@ -26,17 +26,17 @@
                     </div>
                     <div class="flex flex-col gap-2">
                         <div id="ingredients-list-div" class="hidden flex-col">
-                            <h1>Ingredients List</h1>
+                            <h1>Ingrediënten Lijst</h1>
                             <ol id="ingredients-list" class="list-decimal">
                                 <!-- ingredients in here with JS -->
                             </ol>
                         </div>
-                        <label for="ingredients" class="capitalize">ingredients</label>
+                        <label for="ingredients" class="capitalize">ingrediënten</label>
                         <div class="relative flex gap-1">
                             <input id="ingredients" name="ingredients" type="text"
                                    class="p-2 w-full border border-secondary md:border-gray-300 rounded">
                             <button type="button" id="add-ingredient"
-                                    class="capitalize border-2 border-primary p-2 rounded">Add
+                                    class="capitalize border-2 border-primary p-2 rounded">Toevoegen
                             </button>
                             <div id="ingredients-menu"
                                  class="absolute top-12 hidden h-fit w-full bg-white border-black rounded border-2 flex-col">
@@ -48,18 +48,18 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label for="preparation" class="capitalize">preparation</label>
+                        <label for="preparation" class="capitalize">bereidingswijze</label>
                         <textarea id="preparation" name="preparation" type="text"
                                   class="p-2 border border-secondary md:border-gray-300 rounded" rows="3"></textarea>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label for="image" class="capitalize">image</label>
+                        <label for="image" class="capitalize">afbeelding</label>
                         <input id="image" name="image" type="file"
                                class="p-2 border border-secondary md:border-gray-300 rounded bg-white">
                     </div>
                 </div>
                 <div class="flex justify-between items-center w-full">
-                    <button type="submit" class="bg-primary w-full text-white p-2 rounded">Create</button>
+                    <button type="submit" class="bg-primary w-full text-white p-2 rounded">Publiceren</button>
                 </div>
             </form>
         </div>
