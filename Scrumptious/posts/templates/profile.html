@@ -1,0 +1,68 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %} - Scrumptious</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100">
+    {% include 'nav.html' %}
+    <div class="container mx-auto p-6">
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+            <h1 class="text-4xl font-bold text-center text-gray-800">Welcome {{ user.username }}!</h1>
+        </div>
+
+        {% if messages %}
+            <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="mt-6">
+            <h2 class="text-2xl font-semibold mb-2">Your Posts</h2>
+            <ul class="bg-white rounded-lg shadow-md p-4">
+                {% for post in posts %}
+                    <li class="border-b border-orange-500 py-2 flex items-center mb-4">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-16 h-16 object-cover mr-6 border border-gray-300 p-1 rounded-md shadow-sm">
+                        {% endif %}
+                        <div>
+                            <a href="{% url 'post' post.id %}" class="text-xl font-semibold text-blue-600 hover:underline">{{ post.title }}</a>
+                            <p class="text-gray-600 text-sm">{{ post.created_at }}</p>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class="text-gray-500">No posts yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="mt-6">
+            <h2 class="text-2xl font-semibold mb-2">Bookmarked Posts</h2>
+            <ul class="bg-white rounded-lg shadow-md p-4">
+                {% for post in bookmarked_posts %}
+                    <li class="border-b border-orange-500 py-2 flex items-center mb-4">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-16 h-16 object-cover mr-6 border border-gray-300 p-1 rounded-md shadow-sm">
+                        {% endif %}
+                        <div>
+                            <a href="{% url 'post' post.id %}" class="text-xl font-semibold text-blue-600 hover:underline">{{ post.title }}</a>
+                            <p class="text-gray-600 text-sm">{{ post.created_at }}</p>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class="text-gray-500">No bookmarked posts yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

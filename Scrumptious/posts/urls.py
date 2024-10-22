@@ -1,11 +1,10 @@
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
-from . import views
+
+from .views import home_view, create_post_view, post_view, profile_view
 
 urlpatterns = [
-    path('create/', views.create_post_view, name='create'),
-    path('post/<int:post_id>/', views.post_view, name='post'),
+    #path('', home_view, name='home'),
+    path('create/', create_post_view, name='create'),  # Ensure this line is present
+    path('post/<int:post_id>/', post_view, name='post'),
+    path('profile/', profile_view, name='profile'),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
